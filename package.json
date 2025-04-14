@@ -1,0 +1,28 @@
+{
+  "name": "chat-websocket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"  
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilonivna/chat-websocket.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/ilonivna/chat-websocket/issues"
+  },
+  "homepage": "https://github.com/ilonivna/chat-websocket#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
