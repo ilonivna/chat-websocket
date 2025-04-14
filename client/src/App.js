@@ -1,4 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import Layout from './components/layout';
+import Chatbox from './components/chatBox';
+import TotalClients from './components/totalClients';
+import "./App.css";
+
 
 function App() {
 
@@ -15,7 +20,11 @@ function App() {
     <div>
 
       <h1>{message}</h1>
-      <h3>The CH@</h3>
+      <Layout>
+        <Chatbox/>
+      </Layout>
+
+      <TotalClients/>
     </div>
   );
 }
