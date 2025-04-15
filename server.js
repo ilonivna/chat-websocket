@@ -1,13 +1,44 @@
 import express from "express";
+import { Server } from "socket.io";
+import { createServer } from "http";
 
 const app = express();
-const port = 5001;
+const PORT = 5001;
+
+// Creating an HTTP server using the Express app
+const server = createServer(app);
+
+// Creating a Socket.IO server and attach it to the HTTP server
+const io = new Server(server, {
+  cors: {
+    origin: "*", // or 'http://localhost:3000' if want to restrict it
+  },
+});
+
+
+let socketsConnected = new Set();
+// Socket.IO connection handler
+io.on("connection", onConnected)
+
+function onConnected(socket) {
+  console.log(socket.id);
+  socketsConnected.add(socket.id);
+
+  io.emit("clients-total", socketsConnected.size)
+
+  socket.on("disconnect", () => {
+    console.log("Socket disconnected", socket.id);
+    socketsConnected.delete(socket.id);
+    io.emit("clients-total", socketsConnected.size)
+  })
+}
 
 app.get('/api', (req, res) => {
-    console.log('Received request at /api');
     res.send('Hello from your Cool Server!');
   });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+
+// Start the combined HTTP + WebSocket server
+server.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
