@@ -21,15 +21,20 @@ let socketsConnected = new Set();
 io.on("connection", onConnected)
 
 function onConnected(socket) {
-  console.log(socket.id);
+  console.log("Socket connected", socket.id);
   socketsConnected.add(socket.id);
-
   io.emit("clients-total", socketsConnected.size)
+
 
   socket.on("disconnect", () => {
     console.log("Socket disconnected", socket.id);
     socketsConnected.delete(socket.id);
     io.emit("clients-total", socketsConnected.size)
+  })
+
+  socket.on("chat-message", (data) => {
+    socket.broadcast.emit("chat-message", data); // to others
+    socket.emit("chat-message", data);           // to sender
   })
 }
 

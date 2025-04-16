@@ -1,3 +1,3 @@
 export default function Header() {
-    return <div>Header here</div>
+    return <div>The CH@</div>
 }

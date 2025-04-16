@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 * {
   margin: 0;
@@ -8,6 +8,6 @@
 }
 
 body {
-  font-family: 'Pacifico', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
   background-color: #ebebeb;
 }
