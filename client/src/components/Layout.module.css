@@ -2,7 +2,7 @@
     max-width: 480px;
     margin: 0 auto;
     border: 1px solid rgba(92, 87, 87, 0.789);
-    height: 900px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     border-radius: 20px;

@@ -2,7 +2,7 @@ import { io } from "socket.io-client";
 import React, { useEffect, useRef, useState } from 'react';
 import Layout from './components/layout';
 import Chatbox from './components/chatBox';
-import TotalClients from './components/totalClients';
+
 import "./App.css";
 
 
@@ -10,7 +10,6 @@ function App() {
 const [message, setMessage] = useState("");
 const [totalClients, setTotalClients] = useState(0);
 const [username, setUsername] = useState('anonymous');
-const [messageServer, setMessageServer] = useState('');
 const [chatMessages, setChatMessages] = useState([]);
 
 
@@ -53,11 +52,11 @@ const socketRef = useRef();
   return (
 
     <div>
-      <Layout>
+      <Layout totalClients={totalClients}>
         <Chatbox message={message} setMessage={setMessage} sendMessage={sendMessage} chatMessages={chatMessages} setUsername={setUsername} username={username} currentUser={username}/>
       </Layout>
 
-      <TotalClients data={totalClients}/>
+      
     </div>
   );
 }

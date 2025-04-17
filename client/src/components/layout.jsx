@@ -1,8 +1,9 @@
 import Header from "./header.jsx";
 import Footer from "./footer.jsx";
 import styles from './Layout.module.css';
+import TotalClients from "./totalClients.jsx"
 
-export default function Layout({ children }) {
+export default function Layout({ children, totalClients }) {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -16,6 +17,8 @@ export default function Layout({ children }) {
       <footer className={styles.footer}>
         <Footer />
       </footer>
+      <div><TotalClients data={totalClients}/></div>
+      
     </div>
   );
 }
