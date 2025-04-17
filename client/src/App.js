@@ -37,14 +37,6 @@ const socketRef = useRef();
     return () => socket.disconnect(); // cleanup on unmount
   }, []);
 
-  //THIS EFFECT FETCHES  API greeting WHEN SERVER IS LIVE
-  useEffect(() => {
-    fetch('/api')
-      .then((res) => res.text())
-      .then((data) => setMessageServer(data))
-      .catch((err) => console.log(err));
-  }, []);
-
 
    // message sending handler
    const sendMessage = () => {
@@ -61,8 +53,6 @@ const socketRef = useRef();
   return (
 
     <div>
-
-      <h1>{messageServer}</h1>
       <Layout>
         <Chatbox message={message} setMessage={setMessage} sendMessage={sendMessage} chatMessages={chatMessages} setUsername={setUsername} username={username} currentUser={username}/>
       </Layout>

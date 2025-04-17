@@ -38,11 +38,6 @@ function onConnected(socket) {
   })
 }
 
-app.get('/api', (req, res) => {
-    res.send('Hello from your Cool Server, I am LIVE!');
-  });
-
-
 // Start the combined HTTP + WebSocket server
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
