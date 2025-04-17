@@ -39,7 +39,7 @@ function onConnected(socket) {
 }
 
 app.get('/api', (req, res) => {
-    res.send('Hello from your Cool Server!');
+    res.send('Hello from your Cool Server, I am LIVE!');
   });
 
 

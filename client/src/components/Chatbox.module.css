@@ -1,0 +1,30 @@
+.chatbox {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .messagesContainer {
+    flex: 1;
+    min-height: 0; /* allows .messageList to scroll */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .messageList {
+    flex: 1;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 10px;
+  }
+  
+  .messageItem {
+    margin-bottom: 10px;
+  }
+  
+
+  

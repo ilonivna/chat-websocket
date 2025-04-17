@@ -1,25 +1,20 @@
-import MessageList from "./MessageList";
-import TextField from "./textField";
+import styles from './Chatbox.module.css';
+import MessageList from './MessageList.jsx';
+import TextField from './textField.jsx';
 import UserBar from "./userBar";
-
 
 export default function Chatbox({ message, setMessage, sendMessage, chatMessages, setUsername, username, currentUser }) {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        flex: 1,
-        minHeight: 0,
-      }}
-    >
-      <UserBar setUsername={setUsername} username={username}/>
-      <div style={{ flex: 1, overflowY: "auto" }}>
-        <MessageList data={chatMessages} currentUser={currentUser}/>
+    <div className={styles.chatbox}>
+      <UserBar username={username} setUsername={setUsername} />
+      
+      <div className={styles.messagesContainer}>
+        <MessageList data={chatMessages} currentUser={currentUser} />
       </div>
 
-      <TextField setMessage={setMessage} message={message} sendMessage={sendMessage}/>
+      <div className={styles.inputWrapper}>
+        <TextField message={message} setMessage={setMessage} sendMessage={sendMessage} />
+      </div>
     </div>
   );
 }

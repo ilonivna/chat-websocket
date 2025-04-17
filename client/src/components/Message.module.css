@@ -8,11 +8,19 @@
     flex-direction: column;
   }
   
+  .cont {
+    display: flex;
+    flex-direction: column;
+  }
   .currentUser {
     background-color: rgba(144, 238, 144, 0.631); /* Different color for current user messages */
+    align-self: flex-start; /* Align to the right */
+    text-align: left;
   }
   
   .otherUser {
+    align-self: flex-end; /* Align to the right */
+  text-align: right;
     background-color: rgba(255, 160, 122, 0.768); /* Default color for others' messages */
   }
   
@@ -20,6 +28,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
   }
   
   .name {

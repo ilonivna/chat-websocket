@@ -8,8 +8,8 @@ export default function TextField({ setMessage, message, sendMessage }) {
   };
 
   return (
-    <div className={styles.textFieldContainer}>
-      <form onSubmit={handleSend}>
+    <div className={styles.textFieldWrapper}>
+      <form onSubmit={handleSend} className={styles.form}>
         <textarea
           className={styles.textarea}
           value={message}
@@ -20,10 +20,10 @@ export default function TextField({ setMessage, message, sendMessage }) {
               sendMessage();
             }
           }}
-          placeholder="Type your message here.."
+          placeholder="Type your message here..."
         />
-        <button type="submit" className={styles.button}>
-          <IoIosSend className={styles.buttonIcon} size={32} />
+        <button type="submit" className={styles.sendButton}>
+          <IoIosSend size={28} />
         </button>
       </form>
     </div>

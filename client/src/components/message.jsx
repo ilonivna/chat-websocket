@@ -5,6 +5,7 @@ export default function Message({ data, currentUser }) {
   const { name, message, date } = data;
 
   return (
+    <div className={styles.cont}>
     <div className={`${styles.message} ${name === currentUser ? styles.currentUser : styles.otherUser}`}>
       <div className={styles.messageHeader}>
         <p className={styles.name}>{name}</p>
@@ -13,6 +14,7 @@ export default function Message({ data, currentUser }) {
       <div>
         <p className={styles.messageText}>{message}</p>
       </div>
+    </div>
     </div>
   );
 }

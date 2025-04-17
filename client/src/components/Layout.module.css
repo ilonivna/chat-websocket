@@ -1,0 +1,28 @@
+.container {
+    max-width: 480px;
+    margin: 0 auto;
+    border: 1px solid rgba(92, 87, 87, 0.789);
+    height: 900px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #e4e2e2e8;
+  }
+  
+  .header,
+  .footer {
+    background-color: rgba(211, 211, 211, 0.739);
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    width: 100%;
+  }
+  
