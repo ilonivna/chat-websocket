@@ -19,7 +19,7 @@ const socketRef = useRef();
 
 //THIS EFFECT IS DONE ONLY ONCE ON MOUNT
   useEffect(() => {
-    const socket = io("http://localhost:5001");
+    const socket = io("https://chat-websocket-r6s2.onrender.com");
     socketRef.current = socket;
 
     socket.on("connect", () => {

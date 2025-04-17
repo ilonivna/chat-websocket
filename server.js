@@ -11,7 +11,7 @@ const server = createServer(app);
 // Creating a Socket.IO server and attach it to the HTTP server
 const io = new Server(server, {
   cors: {
-    origin: "*", // or 'http://localhost:3000' if want to restrict it
+    origin: "*", 
   },
 });
 
