@@ -1,0 +1,39 @@
+.message {
+    background-color: lightsalmon;
+    border-radius: 10px;
+    padding: 5px 10px;
+    max-width: 80%;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .currentUser {
+    background-color: rgba(144, 238, 144, 0.631); /* Different color for current user messages */
+  }
+  
+  .otherUser {
+    background-color: rgba(255, 160, 122, 0.768); /* Default color for others' messages */
+  }
+  
+  .messageHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .name {
+    font-size: 14px;
+    color: rgb(55, 55, 112);
+  }
+  
+  .date {
+    font-size: 12px;
+    color: grey;
+  }
+  
+  .messageText {
+    font-size: 16px;
+    color: black;
+  }
+  

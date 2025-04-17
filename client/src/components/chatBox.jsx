@@ -3,7 +3,7 @@ import TextField from "./textField";
 import UserBar from "./userBar";
 
 
-export default function Chatbox({ message, setMessage, sendMessage, chatMessages, setUsername, username }) {
+export default function Chatbox({ message, setMessage, sendMessage, chatMessages, setUsername, username, currentUser }) {
   return (
     <div
       style={{
@@ -16,7 +16,7 @@ export default function Chatbox({ message, setMessage, sendMessage, chatMessages
     >
       <UserBar setUsername={setUsername} username={username}/>
       <div style={{ flex: 1, overflowY: "auto" }}>
-        <MessageList data={chatMessages} />
+        <MessageList data={chatMessages} currentUser={currentUser}/>
       </div>
 
       <TextField setMessage={setMessage} message={message} sendMessage={sendMessage}/>

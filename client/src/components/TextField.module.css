@@ -1,0 +1,25 @@
+.textFieldContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: none;
+  }
+  
+  .button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .buttonIcon {
+    color: black;
+  }
+  

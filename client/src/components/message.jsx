@@ -1,16 +1,17 @@
-import Stamp from "./stamp";
+import Stamp from "./stamp.jsx";
+import styles from './Message.module.css';
 
-export default function Message({ data }) {
+export default function Message({ data, currentUser }) {
   const { name, message, date } = data;
 
   return (
-    <div style={{backgroundColor: 'lightsalmon', borderRadius: '10px', paddingLeft: '5px', paddingRight: '5px'}}>
-      <div style={{ display: "flex", gap: '10px', alignItems: 'center', justifyContent: 'flex-end'}}>
-        <p style={{ fontSize: "14px", color: "blue" }}>{name}</p>
+    <div className={`${styles.message} ${name === currentUser ? styles.currentUser : styles.otherUser}`}>
+      <div className={styles.messageHeader}>
+        <p className={styles.name}>{name}</p>
         <Stamp date={date} />
       </div>
       <div>
-        <p>{message}</p>
+        <p className={styles.messageText}>{message}</p>
       </div>
     </div>
   );

@@ -13,6 +13,7 @@ const [username, setUsername] = useState('anonymous');
 const [messageServer, setMessageServer] = useState('');
 const [chatMessages, setChatMessages] = useState([]);
 
+
 const socketRef = useRef();
 
 
@@ -31,8 +32,6 @@ const socketRef = useRef();
 
     socket.on("chat-message", (data) => {
       setChatMessages(prev => [...prev, data]);
-      setUsername(data.name);
-      console.log("Message received from server:", data);
     });
 
     return () => socket.disconnect(); // cleanup on unmount
@@ -65,7 +64,7 @@ const socketRef = useRef();
 
       <h1>{messageServer}</h1>
       <Layout>
-        <Chatbox message={message} setMessage={setMessage} sendMessage={sendMessage} chatMessages={chatMessages} setUsername={setUsername} username={username}/>
+        <Chatbox message={message} setMessage={setMessage} sendMessage={sendMessage} chatMessages={chatMessages} setUsername={setUsername} username={username} currentUser={username}/>
       </Layout>
 
       <TotalClients data={totalClients}/>
