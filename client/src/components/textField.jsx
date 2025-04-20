@@ -1,7 +1,14 @@
 import { IoIosSend } from "react-icons/io";
-import styles from './TextField.module.css';
+import styles from "./TextField.module.css";
+import { useRef } from "react";
 
-export default function TextField({ setMessage, message, sendMessage }) {
+export default function TextField({
+  setMessage,
+  message,
+  sendMessage,
+  socketRef,
+  username,
+}) {
   const handleSend = (e) => {
     e.preventDefault();
     sendMessage();
@@ -9,11 +16,15 @@ export default function TextField({ setMessage, message, sendMessage }) {
 
   return (
     <div className={styles.textFieldWrapper}>
+      
       <form onSubmit={handleSend} className={styles.form}>
         <textarea
           className={styles.textarea}
           value={message}
-          onChange={(e) => setMessage(e.target.value)}
+          onChange={(e) => {
+            setMessage(e.target.value);
+            socketRef.current.emit("typing", username);
+          }}
           onKeyDown={(e) => {
             if (e.key === "Enter" && !e.shiftKey) {
               e.preventDefault();

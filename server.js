@@ -36,6 +36,10 @@ function onConnected(socket) {
     socket.broadcast.emit("chat-message", data); // to others
     socket.emit("chat-message", data);           // to sender
   })
+
+  socket.on("typing", (name) => {
+    socket.broadcast.emit("user-typing", name);
+  });
 }
 
 // Start the combined HTTP + WebSocket server

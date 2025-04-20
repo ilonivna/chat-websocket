@@ -14,7 +14,7 @@ export default function MessageList({ data, currentUser }) {
         {data.length > 0 &&
           data.map((item) => (
             <li key={item.date} className={styles.messageItem}>
-              <Message data={item} currentUser={currentUser} />
+              <Message data={item} currentUser={currentUser}/>
             </li>
           ))}
       </ul>

@@ -11,6 +11,7 @@ const [message, setMessage] = useState("");
 const [totalClients, setTotalClients] = useState(0);
 const [username, setUsername] = useState('anonymous');
 const [chatMessages, setChatMessages] = useState([]);
+const [typingUsers, setTypingUsers] = useState([]);
 
 
 const socketRef = useRef();
@@ -33,6 +34,20 @@ const socketRef = useRef();
       setChatMessages(prev => [...prev, data]);
     });
 
+    socket.on("user-typing", (user) => {
+      if (user !== username) {
+        setTypingUsers((prev) => {
+          if (!prev.includes(user)) return [...prev, user];
+          return prev;
+        });
+    
+        // Clear after 3 seconds of inactivity
+        setTimeout(() => {
+          setTypingUsers((prev) => prev.filter((item) => item !== user));
+        }, 3000);
+      }
+    });
+
     return () => socket.disconnect(); // cleanup on unmount
   }, []);
 
@@ -53,7 +68,7 @@ const socketRef = useRef();
 
     <div>
       <Layout totalClients={totalClients}>
-        <Chatbox message={message} setMessage={setMessage} sendMessage={sendMessage} chatMessages={chatMessages} setUsername={setUsername} username={username} currentUser={username}/>
+        <Chatbox message={message} setMessage={setMessage} sendMessage={sendMessage} chatMessages={chatMessages} setUsername={setUsername} username={username} currentUser={username} socketRef={socketRef} typingUsers={typingUsers}/>
       </Layout>
 
       
