@@ -1,6 +1,6 @@
 import { IoIosSend } from "react-icons/io";
 import styles from "./TextField.module.css";
-import { useRef } from "react";
+import {debounce} from "lodash";
 
 export default function TextField({
   setMessage,
@@ -14,6 +14,10 @@ export default function TextField({
     sendMessage();
   };
 
+  const emitTyping = debounce(() => {
+    socketRef.current.emit("typing", username);
+  }, 500); //  emits if no keystroke for 500ms
+
   return (
     <div className={styles.textFieldWrapper}>
       
@@ -23,7 +27,7 @@ export default function TextField({
           value={message}
           onChange={(e) => {
             setMessage(e.target.value);
-            socketRef.current.emit("typing", username);
+            emitTyping();
           }}
           onKeyDown={(e) => {
             if (e.key === "Enter" && !e.shiftKey) {
